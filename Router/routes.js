@@ -1,6 +1,7 @@
 
 const mongoose = require('mongoose');
 const User = require('../Models/user');
+const Exercise = require('../Models/exercise');
 
 app.post('/api/exercise/new-user', function(req,res){
   var newUser = new User(req.body);
@@ -15,5 +16,17 @@ app.post('/api/exercise/new-user', function(req,res){
   
   
 });
+
+
+app.post('/api/exercise/add', function(req, res){
+    
+  var newExercise = new Exercise(req.body);
+  
+
+});
+
+
+
+
 
 module.exports = routes;
