@@ -8,4 +8,7 @@ const userSchema = new Schema({
     exercises:{type: mongoose.ObjectId, ref:"Exercise"}
 });
 
+
+userSchema.index({username : 1}, {unique:true});
+
 module.exports = mongoose.model('User', userSchema);
