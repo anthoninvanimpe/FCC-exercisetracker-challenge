@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const exerciseSchema = new Schema({
-    description: String,
-    date: Date,
+    description: {type: String, required: true},
+    date: {type:Date, default: Date.now},
     duration: Number,
-    userId: mongoose.ObjectId
+    userId: {type:mongoose.ObjectId, required: true, ref: "User"}
 
 });
 
