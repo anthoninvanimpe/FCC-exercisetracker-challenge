@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
     username:{type: String, required: true},
-    creation_date: Date,
-    exercises:{type: mongoose.ObjectId, ref:"Exercise"}
+    creation_date: new Date(),
+    exercises:{type: [mongoose.Schema.Types.ObjectId], ref:"Exercise"}
 });
 
 
