@@ -5,7 +5,10 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 
 const mongoose = require('mongoose')
-mongoose.connect(process.env.MLAB_URI || 'mongodb://localhost/exercise-track' )
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/exercise-track', {useNewUrlParser: true,
+  useUnifiedTopology: true} )
+
+const router = require('../Router/routes');
 
 app.use(cors())
 
@@ -18,6 +21,7 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html')
 });
 
+app.use(router);
 
 // Not found middleware
 app.use((req, res, next) => {
